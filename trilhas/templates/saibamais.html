@@ -11,21 +11,21 @@
 
 <!-- NAVBAR -->
 <nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color:#063F55;">
-  <a class="navbar-brand" href="#">
-    <img src="logo-ifc.png" height="42">
-  </a>
+<a class="navbar-brand fw-bold text-success" href="{% url 'inicio' %}" style="font-size: 1.4rem;">
+    ConectaFacil
+</a>
 
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
     <span class="navbar-toggler-icon"></span>
   </button>
 
-  <div class="collapse navbar-collapse" id="navbarNav">
+  <div class="collapse navbar-collapse" id="navbarContent">
     <ul class="navbar-nav mx-auto">
-      <li class="nav-item"><a class="nav-link text-success fw-bold" href="#">Página Inicial</a></li>
-      <li class="nav-item"><a class="nav-link text-light" href="#">Perfil</a></li>
-      <li class="nav-item"><a class="nav-link text-light" href="#">Trilhas</a></li>
+      <li class="nav-item"><a class="nav-link text-success fw-bold" href="{% url 'inicio' %}">Página Inicial</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="{% url 'edita_usuario' %}">Perfil</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="{% url 'saibamais' %}">Saiba Mais</a></li>
     </ul>
-    <a class="btn btn-outline-light">SAIBA MAIS</a>
+    <a class="btn btn-outline-danger" href="{% url 'logout' %}">Sair</a>
   </div>
 </nav>
 
@@ -35,64 +35,91 @@
   <div class="row">
 
     <!-- Texto -->
-    <div class="col-lg-8">
-      <h1 class="fw-bold">Bem Vindo<br>Ao Projeto Nomado</h1>
+<div class="col-lg-8 mx-auto">
 
-      <p class="mt-4">
-        O NomadoProjeto é um sistema feito para ajudar pessoas mais velhas ou
-        indivíduos que desejam ampliar seu conhecimento sobre sistemas e como
-        utilizá-los. Esse projeto é mais uma forma de inclusão das pessoas.
-      </p>
+  <!-- BLOCO 1 – Introdução -->
+  <div class="mt-4 p-4 border rounded shadow-sm bg-light" style="max-width: 800px; margin: 0 auto;">
+    <h2 class="fw-bold mb-3">Bem-vindo ao Projeto ConectaFacil</h2>
+    <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6;">
+      O ConectaFacil é um sistema criado para auxiliar pessoas mais velhas, iniciantes no mundo digital ou 
+      qualquer indivíduo que deseje aprender a usar ferramentas da internet de forma clara e segura. 
+      Este projeto promove inclusão digital por meio de trilhas simples, práticas e acessíveis.
+    </p>
+  </div>
 
-      <h4 class="fw-bold mt-5 text-success">Quem somos?</h4>
+  <!-- BLOCO 2 – Quem Somos -->
+  <div class="mt-4 p-4 border rounded shadow-sm bg-light" style="max-width: 800px; margin: 0 auto;">
+    <h4 class="fw-bold text-success mb-3">Quem somos?</h4>
+    <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6;">
+      Somos um grupo de estudantes do curso de Análise e Desenvolvimento de Sistemas do IFC Fraiburgo,
+      com apoio de professores e profissionais da instituição. Nosso objetivo é tornar o ambiente digital 
+      mais acessível e menos intimidador, oferecendo conteúdo estruturado para quem está começando.
+    </p>
+  </div>
 
-      <p>
-        Somos um grupo formado por alunos de Análise e Desenvolvimento de Sistemas,
-        com apoio do professor responsável e da instituição IFC Fraiburgo. Nosso
-        objetivo é facilitar o acesso ao mundo digital, oferecendo trilhas que
-        promovem um aprendizado simples, claro e acessível.
-      </p>
+  <!-- BLOCO 3 – Objetivo -->
+<div class="mt-4 p-4 border rounded shadow-sm bg-light" style="max-width: 800px; margin: 0 auto;">
+  <h4 class="fw-bold text-success mb-3">Nosso objetivo</h4>
+  <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6;">
+    Nosso objetivo é democratizar o conhecimento digital e ajudar pessoas a utilizar ferramentas online,
+    navegar com segurança, identificar sites confiáveis, evitar golpes e compreender elementos importantes 
+    do cotidiano digital. Queremos que todos possam explorar a internet com confiança.
+  </p>
+</div>
 
-      <h4 class="fw-bold mt-5 text-success">Objetivo</h4>
-
-      <p>
-        Nosso objetivo é democratizar o conhecimento digital, ajudando pessoas a
-        utilizar ferramentas tecnológicas, navegar em sites, reconhecer ambientes
-        digitais seguros e aprender conceitos essenciais do cotidiano digital.
-      </p>
-    </div>
+</div>
 
     <!-- Imagem / Mapa -->
     <div class="col-lg-4 text-center">
-      <img src="mapa-projeto.png" class="img-fluid rounded" alt="Mapa/Ilustração">
-    </div>
+{% load static %}
+    <img src="{% static 'trilhas/img/mapa.png' %}"
+         class="img-fluid rounded shadow"
+         style="max-width: 650px;"
+         alt="Imagem ilustrativa">    </div>
 
   </div>
 
 </section>
 
 <!-- FOOTER -->
-<footer class="bg-dark text-light py-4 mt-3">
-  <div class="container d-flex flex-wrap justify-content-between">
+<footer class="bg-dark text-light py-4">
+  <div class="container d-flex justify-content-between flex-wrap">
 
     <div class="mb-3">
-      <img src="logo-ifc.png" height="50">
-      <p class="small mb-0">Instituto Federal Catarinense - Campus Fraiburgo</p>
+      {% load static %}
+      <a href="https://www.fraiburgo.ifc.edu.br" target="_blank" rel="noopener noreferrer">
+        <img src="{% static 'trilhas/img/logoif.png' %}" height="50">
+      </a>
+      <p class="small mb-0">
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">
+          Instituto Federal Catarinense - Campus Fraiburgo
+        </a>
+      </p>
     </div>
 
     <div class="mb-3">
-      <h6 class="fw-bold small">Informações adicionais</h6>
-      <p class="small mb-0">Sobre nós<br>Documentação</p>
+      <p class="fw-bold mb-1 small">Informações adicionais</p>
+      <p class="small mb-0">
+        <a href="{% url 'saibamais' %}" class="text-light text-decoration-none">Sobre nós</a><br>
+        <a href="https://docs.google.com/document/d/1I50B5nf87lcbvWvDVuLmyVz7jJvC6sagjFIiQvTqs8Q/edit?tab=t.0" class="text-light text-decoration-none" target="_blank">
+          Documentação
+        </a>
+      </p>
     </div>
 
     <div class="mb-3">
-      <h6 class="fw-bold small">Social</h6>
-      <p class="small mb-0">LinkedIn<br>Github<br>IFC - Fraiburgo</p>
+      <p class="fw-bold mb-1 small">Social</p>
+      <p class="small mb-0">
+        <a href="https://www.linkedin.com/in/andressasantunes6/" class="text-light text-decoration-none" target="_blank">Andressa - LinkedIn</a><br>
+        <a href="https://www.linkedin.com/in/yuri-bargas-oliveira-ba513a386/" class="text-light text-decoration-none" target="_blank">Yuri - LinkedIn</a><br>
+        <a href="https://github.com/YorihBarg/Inter3Facil" class="text-light text-decoration-none" target="_blank">Github</a><br>
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">IFC - Fraiburgo</a>
+      </p>
     </div>
 
   </div>
 
-  <p class="text-center small mt-3 mb-0">© 2025 NomadoProjeto. Todos os Direitos Reservados.</p>
+  <p class="text-center small mt-3 mb-0">© 2025 ConectaFacil. Todos os Direitos Reservados.</p>
 </footer>
 
 

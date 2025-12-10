@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sistema de Gerenciamento de Livros - SIGAM</title>
+  <title>ConectaFacil</title>
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
@@ -21,10 +21,10 @@
             <use xlink:href="#bootstrap"></use>
           </svg> </a>
         <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
-          SIGAM
+          ConectaFacil
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-          <li><a href="#" class="nav-link px-2 link-light" aria-label="Livros Disponíveis">Livros</a></li>
+          <li><a href="{% url 'sobre' %}" class="nav-link px-2 link-light" aria-label="Sobre">Sobre</a></li>
           <li><a href="{% url 'login' %}" class="nav-link px-2 link-light" aria-label="Login em conta existente">Login</a></li>
           <li><a href="{% url 'cadastro' %}" class="nav-link px-2 link-light" aria-label="Cadastrar novo usuário">Cadastro</a></li>
         </ul>
@@ -34,25 +34,129 @@
     </div>
   </header>
 
-  <main class="container" id="conteudo-principal" role="main">
-    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
-        <div class="col-lg-6 px-0">
-          <h1 class="display-4" id="titulo">O Estudo Liberta</h1>
-          <p class="lead my-3">Conheça nossos livros disponiveis, tambem nos de sugestões de livros de interesse e que
-            possam ajudar os nossos estudantes.</p>
-          <button class="btn btn-dark rounded-pill px-3" type="button" role="button" aria-label="Livros disponíveis"><a href="#">Livros</a></button>
+  <body class="min-vh-100">
+
+<section class="container text-center my-5">
+  <h1 class="fw-bold">Aprender Tecnologia é<br>Avançar com a Humanidade.</h1>
+
+  <div class="my-4 d-flex justify-content-center">
+    {% load static %}
+    <img src="{% static 'trilhas/img/tech.png' %}" class="rounded-circle img-fluid" style="width: 500px; height: 360px; object-fit: cover;">
+  </div>
+
+  <a href="{% url 'cadastro' %}" class="btn btn-success px-4 py-2">Comece Já</a>
+</section>
+
+<!-- TRILHAS -->
+<section id="trilhas" class="container my-5">
+  <span class="text-success fw-bold">Conteúdo</span>
+  <h3 class="fw-bold mt-2">Trilhas Disponíveis</h3>
+  <p>Conheça os conteúdos que serão disponibilizados para você aprender</p>
+
+  <div class="row g-4 mt-4">
+
+    <!-- CARD 1 -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <img src="card1.png" class="card-img-top">
+        <div class="card-body">
+          <h6 class="text-success fw-bold">Entrada</h6>
+          <h5 class="fw-bold">Como Utilizar um site</h5>
+          <p>Aprenda a Navegar desde a entrada até a saída de um site.</p>
+          <p class="text-warning mb-0">⭐ 4.3 <span class="text-muted">(16.325)</span></p>
         </div>
       </div>
     </div>
-  </main>
-    <div vw class="enabled" aria-label="Plugin de tradução em Libras">
-    <div vw-access-button class="active" aria-label="Botão de acesso ao VLibras"></div>
-    <div vw-plugin-wrapper>
-      <div class="vw-plugin-top-wrapper"></div>
+
+    <!-- CARD 2 -->
+    <div class="col-md-6">
+      <div class="card shadow-sm h-100">
+        <img src="card2.png" class="card-img-top">
+        <div class="card-body">
+          <h6 class="text-success fw-bold">Segurança</h6>
+          <h5 class="fw-bold">Navegue de forma segura</h5>
+          <p>Aprenda como confiar ou desconfiar na veracidade de uma notícia.</p>
+          <p class="text-warning mb-0">⭐ 4.2 <span class="text-muted">(125)</span></p>
+        </div>
+      </div>
     </div>
+
   </div>
+</section>
+
+<!-- DESENVOLVEDORES -->
+<section class="container my-5 text-center">
+  <h5 class="text-success fw-bold">Criadores</h5>
+  <h3 class="fw-bold">Conheça os Desenvolvedores</h3>
+  <p class="mb-5">Conheça os Alunos Participantes e o Professor responsável pelo projeto</p>
+
+  <div class="row justify-content-center g-4">
+
+    <div class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <img src="{% static 'trilhas/img/boji.png' %}" width="90" class="rounded-circle mx-auto mb-3">
+        <h5>Yuri Bargas Oliveira</h5>
+        <p class="text-muted">Estudante de Análise e Desenvolvimento de Sistemas</p>
+        <div>
+          <i class="bi bi-linkedin"></i>
+          <i class="bi bi-github"></i>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-6">
+      <div class="card p-4 shadow-sm">
+        <img src="{% static 'trilhas/img/kirby.png' %}" width="90" class="rounded-circle mx-auto mb-3">
+        <h5>Andressa Dos Santos Antunes</h5>
+        <p class="text-muted">Estudante de Análise e Desenvolvimento de Sistemas</p>
+        <div>
+          <i class="bi bi-linkedin"></i>
+          <i class="bi bi-github"></i>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
 
 </body>
+<footer class="bg-dark text-light py-4">
+  <div class="container d-flex justify-content-between flex-wrap">
 
+    <div class="mb-3">
+      {% load static %}
+      <a href="https://www.fraiburgo.ifc.edu.br" target="_blank" rel="noopener noreferrer">
+        <img src="{% static 'trilhas/img/logoif.png' %}" height="50">
+      </a>
+      <p class="small mb-0">
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">
+          Instituto Federal Catarinense - Campus Fraiburgo
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Informações adicionais</p>
+      <p class="small mb-0">
+        <a href="{% url 'saibamais' %}" class="text-light text-decoration-none"><i class="bi bi-info-lg"></i> Sobre nós</a><br>
+        <a href="https://docs.google.com/document/d/1I50B5nf87lcbvWvDVuLmyVz7jJvC6sagjFIiQvTqs8Q/edit?tab=t.0" class="text-light text-decoration-none" target="_blank">
+          <i class="bi bi-file-earmark-text-fill"></i> Documentação
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Social</p>
+      <p class="small mb-0">
+        <a href="https://www.linkedin.com/in/andressasantunes6/" class="text-light text-decoration-none" target="_blank"><i class="bi bi-linkedin"></i> Andressa - LinkedIn</a><br>
+        <a href="https://www.linkedin.com/in/yuri-bargas-oliveira-ba513a386/" class="text-light text-decoration-none" target="_blank"><i class="bi bi-linkedin"></i> Yuri - LinkedIn</a><br>
+        <a href="https://github.com/YorihBarg/Inter3Facil" class="text-light text-decoration-none" target="_blank"><i class="bi bi-github"></i> Github</a><br>
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">IFC - Fraiburgo</a>
+      </p>
+    </div>
+
+  </div>
+
+  <p class="text-center small mt-3 mb-0">© 2025 ConectaFacil. Todos os Direitos Reservados.</p>
+</footer>
 </html>

@@ -10,6 +10,9 @@ from django.shortcuts import get_object_or_404
 def index(request):
     return render(request, "index.html")
 
+def sobre(request):
+    return render(request, "sobre.html")
+
 def cadastro_usuario(request):
     if request.method == "GET":
         return render(request, "cadastro.html")

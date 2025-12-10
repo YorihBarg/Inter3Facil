@@ -24,7 +24,7 @@
         </a>
         <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"
           aria-label="Ir para página inicial do SIGAM">
-          SIGAM
+          ConectaFacil
         </a>
         <nav role="navigation" aria-label="Navegação principal">
           <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -91,6 +91,45 @@
     new window.VLibras.Widget('https://vlibras.gov.br/app');
   </script>
 
+<footer class="bg-dark text-light py-4">
+  <div class="container d-flex justify-content-between flex-wrap">
+
+    <div class="mb-3">
+      {% load static %}
+      <a href="https://www.fraiburgo.ifc.edu.br" target="_blank" rel="noopener noreferrer">
+        <img src="{% static 'trilhas/img/logoif.png' %}" height="50">
+      </a>
+      <p class="small mb-0">
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">
+          Instituto Federal Catarinense - Campus Fraiburgo
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Informações adicionais</p>
+      <p class="small mb-0">
+        <a href="{% url 'saibamais' %}" class="text-light text-decoration-none">Sobre nós</a><br>
+        <a href="https://docs.google.com/document/d/1I50B5nf87lcbvWvDVuLmyVz7jJvC6sagjFIiQvTqs8Q/edit?tab=t.0" class="text-light text-decoration-none" target="_blank">
+          Documentação
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Social</p>
+      <p class="small mb-0">
+        <a href="https://www.linkedin.com/in/andressasantunes6/" class="text-light text-decoration-none" target="_blank">Andressa - LinkedIn</a><br>
+        <a href="https://www.linkedin.com/in/yuri-bargas-oliveira-ba513a386/" class="text-light text-decoration-none" target="_blank">Yuri - LinkedIn</a><br>
+        <a href="https://github.com/YorihBarg/Inter3Facil" class="text-light text-decoration-none" target="_blank">Github</a><br>
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">IFC - Fraiburgo</a>
+      </p>
+    </div>
+
+  </div>
+
+  <p class="text-center small mt-3 mb-0">© 2025 ConectaFacil. Todos os Direitos Reservados.</p>
+</footer>
 </body>
 
 </html>

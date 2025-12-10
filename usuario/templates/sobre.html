@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Saiba Mais - NomadoProjeto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+ <header class="p-3 mb-3 border-bottom bg-dark" role="banner" aria-label="Cabeçalho do sistema de login de alunos">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none" aria-label="Página inicial">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Ícone do sistema">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"
+          aria-label="Ir para página inicial do SIGAM">
+          ConectaFacil
+        </a>
+        <nav role="navigation" aria-label="Navegação principal">
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 link-light" aria-label="Acessar página de livros">Livros</a></li>
+            <li><a href="{% url 'login' %}" class="nav-link px-2 link-light" aria-label="Acessar página de login">Login</a></li>
+            <li><a href="{% url 'cadastro' %}" class="nav-link px-2 link-light" aria-label="Acessar página de cadastro">Cadastro</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+<!-- CONTEÚDO PRINCIPAL -->
+<section class="container py-5">
+
+  <div class="row">
+
+    <!-- Texto -->
+<div class="col-lg-8 mx-auto">
+
+  <!-- BLOCO 1 – Introdução -->
+  <div class="mt-4 p-4 border rounded shadow-sm bg-light" style="max-width: 800px; margin: 0 auto;">
+    <h2 class="fw-bold mb-3">Bem-vindo ao Projeto ConectaFacil</h2>
+    <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6;">
+      O ConectaFacil é um sistema criado para auxiliar pessoas mais velhas, iniciantes no mundo digital ou 
+      qualquer indivíduo que deseje aprender a usar ferramentas da internet de forma clara e segura. 
+      Este projeto promove inclusão digital por meio de trilhas simples, práticas e acessíveis.
+    </p>
+  </div>
+
+  <!-- BLOCO 2 – Quem Somos -->
+  <div class="mt-4 p-4 border rounded shadow-sm bg-light" style="max-width: 800px; margin: 0 auto;">
+    <h4 class="fw-bold text-success mb-3">Quem somos?</h4>
+    <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6;">
+      Somos um grupo de estudantes do curso de Análise e Desenvolvimento de Sistemas do IFC Fraiburgo,
+      com apoio de professores e profissionais da instituição. Nosso objetivo é tornar o ambiente digital 
+      mais acessível e menos intimidador, oferecendo conteúdo estruturado para quem está começando.
+    </p>
+  </div>
+
+  <!-- BLOCO 3 – Objetivo -->
+<div class="mt-4 p-4 border rounded shadow-sm bg-light" style="max-width: 800px; margin: 0 auto;">
+  <h4 class="fw-bold text-success mb-3">Nosso objetivo</h4>
+  <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6;">
+    Nosso objetivo é democratizar o conhecimento digital e ajudar pessoas a utilizar ferramentas online,
+    navegar com segurança, identificar sites confiáveis, evitar golpes e compreender elementos importantes 
+    do cotidiano digital. Queremos que todos possam explorar a internet com confiança.
+  </p>
+</div>
+
+</div>
+
+    <!-- Imagem / Mapa -->
+    <div class="col-lg-4 text-center">
+{% load static %}
+    <img src="{% static 'trilhas/img/mapa.png' %}"
+         class="img-fluid rounded shadow"
+         style="max-width: 650px;"
+         alt="Imagem ilustrativa">    </div>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-light py-4">
+  <div class="container d-flex justify-content-between flex-wrap">
+
+    <div class="mb-3">
+      {% load static %}
+      <a href="https://www.fraiburgo.ifc.edu.br" target="_blank" rel="noopener noreferrer">
+        <img src="{% static 'trilhas/img/logoif.png' %}" height="50">
+      </a>
+      <p class="small mb-0">
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">
+          Instituto Federal Catarinense - Campus Fraiburgo
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Informações adicionais</p>
+      <p class="small mb-0">
+        <a href="{% url 'saibamais' %}" class="text-light text-decoration-none">Sobre nós</a><br>
+        <a href="https://docs.google.com/document/d/1I50B5nf87lcbvWvDVuLmyVz7jJvC6sagjFIiQvTqs8Q/edit?tab=t.0" class="text-light text-decoration-none" target="_blank">
+          Documentação
+        </a>
+      </p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Social</p>
+      <p class="small mb-0">
+        <a href="https://www.linkedin.com/in/andressasantunes6/" class="text-light text-decoration-none" target="_blank">Andressa - LinkedIn</a><br>
+        <a href="https://www.linkedin.com/in/yuri-bargas-oliveira-ba513a386/" class="text-light text-decoration-none" target="_blank">Yuri - LinkedIn</a><br>
+        <a href="https://github.com/YorihBarg/Inter3Facil" class="text-light text-decoration-none" target="_blank">Github</a><br>
+        <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">IFC - Fraiburgo</a>
+      </p>
+    </div>
+
+  </div>
+
+  <p class="text-center small mt-3 mb-0">© 2025 ConectaFacil. Todos os Direitos Reservados.</p>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
