@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cadastro de Alunos</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.4/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="min-vh-100">
+
+  <header class="p-3 mb-3 border-bottom bg-dark" role="banner" aria-label="Cabeçalho do sistema de gerenciamento de alunos">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none" aria-label="Página inicial">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Ícone do sistema">
+            <use xlink:href="#bootstrap"></use>
+          </svg>
+        </a>
+        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none" aria-label="Ir para a página inicial do SIGAM">
+          SIGAM
+        </a>
+        <nav role="navigation" aria-label="Menu principal">
+          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+            <li><a href="#" class="nav-link px-2 link-light" aria-label="Acessar página de livros">Livros</a></li>
+            <li><a href="{% url 'login' %}" class="nav-link px-2 link-light" aria-label="Acessar página de login">Login</a></li>
+            <li><a href="{% url 'cadastro' %}" class="nav-link px-2 link-light" aria-label="Acessar página de cadastro">Cadastro</a></li>
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </header>
+
+  <main role="main" aria-labelledby="titulo-cadastro">
+    <div class="card p-5 shadow-sm d-flex justify-content-top align-items-center" style="min-height: 80vh;">
+      <div class="card p-5 shadow-sm" style="max-width: 700px; width: 100%;">
+        <h2 id="titulo-cadastro" class="mb-5 text-center">Cadastro de Aluno</h2>
+
+        <form action="{% url 'cadastro' %}" method="POST" role="form" aria-label="Formulário de cadastro de aluno">
+          {% csrf_token %}
+
+          <div class="row g-3">
+            <div class="col-md-6">
+              <label class="form-label" for="usuario">Usuário</label>
+              <input id="usuario" type="text" placeholder="Digite nome de usuário" name="nome_usuario"
+                class="form-control" required aria-required="true"
+                aria-label="Campo para digitar o nome de usuário">
+            </div>
+
+            <div class="col-md-6">
+              <label class="form-label" for="email">Email</label>
+              <input id="email" type="email" placeholder="Digite seu email" name="email" class="form-control" required
+                aria-required="true" aria-label="Campo para digitar o endereço de e-mail">
+            </div>
+
+            <div class="col-md-4">
+              <label class="form-label" for="senha">Senha</label>
+              <div class="input-group">
+                <input id="senha" type="password" placeholder="Digite sua senha" name="senha" class="form-control"
+                  required aria-required="true" aria-label="Campo para digitar sua senha">
+                <button id="toggleSenha" type="button" class="btn btn-outline-secondary" aria-label="Mostrar senha"
+                  title="Mostrar senha">
+                  <i id="iconSenha" class="bi bi-eye-fill"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <script>
+            const senhaInput = document.getElementById('senha');
+            const toggleBtn = document.getElementById('toggleSenha');
+            const icon = document.getElementById('iconSenha');
+
+            toggleBtn.addEventListener('click', () => {
+              const tipo = senhaInput.type === 'password' ? 'text' : 'password';
+              senhaInput.type = tipo;
+
+              if (tipo === 'text') {
+                icon.classList.remove('bi-eye-fill');
+                icon.classList.add('bi-eye-slash-fill');
+                toggleBtn.setAttribute('aria-label', 'Ocultar senha');
+                toggleBtn.title = 'Ocultar senha';
+              } else {
+                icon.classList.remove('bi-eye-slash-fill');
+                icon.classList.add('bi-eye-fill');
+                toggleBtn.setAttribute('aria-label', 'Mostrar senha');
+                toggleBtn.title = 'Mostrar senha';
+              }
+            });
+          </script>
+
+          <div class="mt-4">
+            <button type="submit" value="cadastro" class="btn btn-primary btn-lg w-100"
+              onclick="return confirm('Deseja cadastrar este usuário?')" aria-label="Botão para cadastrar o aluno">
+              Cadastrar
+            </button>
+            <a href="{% url 'index' %}" class="btn btn-outline-secondary btn-lg w-100 mt-3"
+              aria-label="Voltar para a página inicial">Voltar</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </main>
+
+  <div vw class="enabled" aria-label="Plugin de tradução em Libras">
+    <div vw-access-button class="active" aria-label="Botão de acesso ao VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+  <script>
+    new window.VLibras.Widget('https://vlibras.gov.br/app');
+  </script>
+
+</body>
+
+</html>

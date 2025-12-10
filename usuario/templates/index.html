@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sistema de Gerenciamento de Livros - SIGAM</title>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.13.1/font/bootstrap-icons.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+
+<body class="min-vh-100">
+
+  <header class="p-3 mb-3 border-bottom bg-dark" role="banner">
+    <div class="container">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" role="navigation" aria-label="Pagina inicial"> 
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <svg class="bi me-2"
+            width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg> </a>
+        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
+          SIGAM
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="#" class="nav-link px-2 link-light" aria-label="Livros Disponíveis">Livros</a></li>
+          <li><a href="{% url 'login' %}" class="nav-link px-2 link-light" aria-label="Login em conta existente">Login</a></li>
+          <li><a href="{% url 'cadastro' %}" class="nav-link px-2 link-light" aria-label="Cadastrar novo usuário">Cadastro</a></li>
+        </ul>
+        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search"> <input type="search" class="form-control"
+            placeholder="Buscar..." aria-label="Pesquisa"> </form>
+      </div>
+    </div>
+  </header>
+
+  <main class="container" id="conteudo-principal" role="main">
+    <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+      <div class="p-4 p-md-5 mb-4 rounded text-body-emphasis bg-body-secondary">
+        <div class="col-lg-6 px-0">
+          <h1 class="display-4" id="titulo">O Estudo Liberta</h1>
+          <p class="lead my-3">Conheça nossos livros disponiveis, tambem nos de sugestões de livros de interesse e que
+            possam ajudar os nossos estudantes.</p>
+          <button class="btn btn-dark rounded-pill px-3" type="button" role="button" aria-label="Livros disponíveis"><a href="#">Livros</a></button>
+        </div>
+      </div>
+    </div>
+  </main>
+    <div vw class="enabled" aria-label="Plugin de tradução em Libras">
+    <div vw-access-button class="active" aria-label="Botão de acesso ao VLibras"></div>
+    <div vw-plugin-wrapper>
+      <div class="vw-plugin-top-wrapper"></div>
+    </div>
+  </div>
+
+</body>
+
+</html>

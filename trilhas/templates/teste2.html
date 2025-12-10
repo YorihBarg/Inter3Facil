@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Conteúdo - Segurança na Internet</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    .fake-ad {
+      cursor: pointer;
+      transition: 0.2s;
+    }
+    .fake-ad:hover {
+      transform: scale(1.03);
+      filter: brightness(1.1);
+    }
+    /* botão real escondido */
+    .hidden-real-btn {
+      opacity: 0.4;
+      font-size: 0.85rem;
+    }
+    .hidden-real-btn:hover {
+      opacity: 1;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color:#063F55;">
+  <a class="navbar-brand" href="#">
+    <img src="{% static 'trilhas/img/logo-ifc.png' %}" height="42">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item"><a class="nav-link text-success fw-bold" href="#">Página Inicial</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Perfil</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Saiba Mais</a></li>
+    </ul>
+    <a class="btn btn-outline-light">TRILHAS</a>
+  </div>
+</nav>
+
+<!-- CONTEÚDO -->
+<section class="container text-center py-5">
+
+  <h1 class="fw-bold mb-4">Encontre o botão correto<br>no meio dos anúncios!</h1>
+
+  <p class="text-muted mb-4">Clique nos anúncios para ver um alerta. O botão real existe... mas está bem escondido.</p>
+
+  <!-- GRADE DE ANÚNCIOS -->
+  <div class="row g-4 justify-content-center">
+
+    {% for i in "123456" %}
+    <div class="col-6 col-md-4">
+      <div class="card shadow-sm">
+
+        <!-- imagem falsa -->
+        <img src="{% static 'trilhas/img/anuncios.png' %}"
+             class="card-img-top fake-ad"
+             onclick="showWarning()">
+
+        <!-- botão falso -->
+        <div class="card-body p-2">
+          <button class="btn btn-sm btn-warning w-100 fw-bold" onclick="showWarning()">
+            CLIQUE AQUI PARA CONTINUAR
+          </button>
+        </div>
+
+      </div>
+    </div>
+    {% endfor %}
+
+  </div>
+
+  <!-- botão real escondido -->
+  <div class="mt-5">
+    <a href="{% url 'testefinal' %}"
+       class="btn btn-success hidden-real-btn px-4 py-2">
+       Prosseguir (botão real)
+    </a>
+  </div>
+
+</section>
+
+<!-- MODAL de alerta -->
+<div class="modal fade" id="adWarningModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+
+      <div class="modal-header bg-warning">
+        <h5 class="modal-title fw-bold">Atenção!</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+
+      <div class="modal-body">
+        <p class="mb-0">
+          Este é apenas um anúncio simulado, mas na vida real clicar em banners assim pode levar
+          a golpes, vírus ou páginas inseguras.<br><br>
+          Aqui está tudo seguro — basta fechar a janela para continuar tentando.
+        </p>
+      </div>
+
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-light py-4 mt-5">
+  <div class="container d-flex flex-wrap justify-content-between">
+
+    <div class="mb-3">
+      <img src="{% static 'trilhas/img/logo-ifc.png' %}" height="50">
+      <p class="small mb-0">Instituto Federal Catarinense - Campus Fraiburgo</p>
+    </div>
+
+    <div class="mb-3">
+      <h6 class="fw-bold small">Informações adicionais</h6>
+      <p class="small mb-0">Sobre nós<br>Documentação</p>
+    </div>
+
+    <div class="mb-3">
+      <h6 class="fw-bold small">Social</h6>
+      <p class="small mb-0">LinkedIn<br>GitHub<br>IFC - Fraiburgo</p>
+    </div>
+
+  </div>
+
+  <p class="text-center small mt-3 mb-0">© 2025 NomadoProjeto. Todos os Direitos Reservados.</p>
+</footer>
+
+<script>
+function showWarning() {
+  var modal = new bootstrap.Modal(document.getElementById('adWarningModal'));
+  modal.show();
+}
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

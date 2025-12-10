@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Aprenda do Zero - NomadProjeto</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-success px-3">
+  <a class="navbar-brand" href="#">
+    <img src="logo-ifc.png" height="40" alt="IFC">
+  </a>
+
+  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navMenu">
+    <ul class="navbar-nav mx-auto">
+      <li class="nav-item"><a class="nav-link text-light" href="#">Página Inicial</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Trilhas</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Perfil</a></li>
+      <li class="nav-item"><a class="nav-link text-light" href="#">Saiba Mais</a></li>
+    </ul>
+    <a class="btn btn-outline-light" href="#">TRILHAS</a>
+  </div>
+</nav>
+
+<!-- Conteúdo -->
+<section class="container text-center py-5">
+
+  <h1 class="fw-bold text-success">Aprenda do Zero</h1>
+  <h5 class="mt-2">Sinta-Se Seguro Ao Navegar</h5>
+
+  <div class="mt-4 p-4 border rounded shadow-sm bg-light text-start" style="max-width: 800px; margin: 0 auto;">
+  <p class="mb-0" style="font-size: 1.05rem; line-height: 1.6;">
+    Você já entrou em algum site e ficou inseguro ao navegar por causa da quantidade de anúncios?
+    Quando uma página está lotada de banners, pop-ups e conteúdos piscando por todos os lados,
+    é comum sentir dúvida sobre a segurança do que está sendo acessado. Muitas vezes, esse excesso
+    de informações pode esconder links falsos, golpes ou até programas maliciosos. Por isso é tão
+    importante saber identificar quando um site é confiável e quando ele pode oferecer riscos.
+    Nesta trilha, vamos aprender como navegar com mais segurança e reconhecer sinais de alerta
+    para evitar problemas enquanto usamos a internet.
+  </p>
+</div>
+  <!-- Imagem com play -->
+ <div class="text-center my-5">
+    {% load static %}
+    <img src="{% static 'trilhas/img/anuncios.png' %}"
+         class="img-fluid rounded shadow"
+         style="max-width: 650px;"
+         alt="Imagem ilustrativa">
+  </div>
+
+  <div class="p-4 border rounded shadow-sm bg-white mb-5" 
+       style="max-width: 850px; margin: 0 auto; border-left: 6px solid #198754;">
+    <h5 class="fw-bold text-success mb-2">Você se sente seguro nesta página?</h5>
+    <p class="text-muted mb-0">
+      Pense em como o excesso de anúncios interfere na sua navegação.
+    </p>
+  </div>
+
+  <div class="text-center mt-4">
+    <a href="{% url 'teste2' %}"
+       class="btn btn-success px-5 py-3 fw-bold shadow"
+       style="font-size: 1.1rem; border-radius: 10px;">
+      PROSSEGUIR
+    </a>
+  </div>
+
+</section>
+
+<!-- Footer -->
+<footer class="bg-dark text-light py-4">
+  <div class="container d-flex justify-content-between flex-wrap">
+
+    <div class="mb-3">
+      <img src="logo-ifc.png" height="50">
+      <p class="small mb-0">Instituto Federal Catarinense - Campus Fraiburgo</p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Informações adicionais</p>
+      <p class="small mb-0">Sobre nós<br>Documentação</p>
+    </div>
+
+    <div class="mb-3">
+      <p class="fw-bold mb-1 small">Social</p>
+      <p class="small mb-0">LinkedIn<br>Github<br>IFC - Fraiburgo</p>
+    </div>
+
+  </div>
+
+  <p class="text-center small mt-3 mb-0">© 2025 NomadProjeto. Todos os Direitos Reservados.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
