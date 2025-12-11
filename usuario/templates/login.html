@@ -13,31 +13,27 @@
 
 <body class="min-vh-100">
 
-  <!-- Cabeçalho -->
-  <header class="p-3 mb-3 border-bottom bg-dark" role="banner" aria-label="Cabeçalho do sistema de login de alunos">
+  <header class="p-3 mb-3 border-bottom bg-dark" role="banner">
     <div class="container">
-      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none" aria-label="Página inicial">
-          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Ícone do sistema">
+      <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" role="navigation" aria-label="Pagina inicial"> 
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <svg class="bi me-2"
+            width="40" height="32" role="img" aria-label="Bootstrap">
             <use xlink:href="#bootstrap"></use>
-          </svg>
-        </a>
-        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"
-          aria-label="Ir para página inicial do SIGAM">
+          </svg> </a>
+        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
           ConectaFacil
         </a>
-        <nav role="navigation" aria-label="Navegação principal">
-          <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
-            <li><a href="#" class="nav-link px-2 link-light" aria-label="Acessar página de livros">Livros</a></li>
-            <li><a href="{% url 'login' %}" class="nav-link px-2 link-light" aria-label="Acessar página de login">Login</a></li>
-            <li><a href="{% url 'cadastro' %}" class="nav-link px-2 link-light" aria-label="Acessar página de cadastro">Cadastro</a></li>
-          </ul>
-        </nav>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a href="{% url 'sobre' %}" class="nav-link px-2 link-light" aria-label="Sobre">Sobre</a></li>
+          <li><a href="{% url 'login' %}" class="nav-link px-2 link-light" aria-label="Login em conta existente">Login</a></li>
+          <li><a href="{% url 'cadastro' %}" class="nav-link px-2 link-light" aria-label="Cadastrar novo usuário">Cadastro</a></li>
+        </ul>
+          <a href="{% url 'cadastro' %}" class="btn btn-success px-4 py-2">Comece Já</a>
+
       </div>
     </div>
   </header>
 
-  <!-- Conteúdo principal -->
   <main role="main" aria-labelledby="titulo-login">
     <div class="card p-5 shadow-sm d-flex justify-content-top align-items-center" style="min-height: 80vh;">
       <div class="card p-5 shadow-sm" style="max-width: 700px; width: 100%;">

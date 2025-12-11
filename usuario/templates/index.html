@@ -28,8 +28,8 @@
           <li><a href="{% url 'login' %}" class="nav-link px-2 link-light" aria-label="Login em conta existente">Login</a></li>
           <li><a href="{% url 'cadastro' %}" class="nav-link px-2 link-light" aria-label="Cadastrar novo usuário">Cadastro</a></li>
         </ul>
-        <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3" role="search"> <input type="search" class="form-control"
-            placeholder="Buscar..." aria-label="Pesquisa"> </form>
+          <a href="{% url 'cadastro' %}" class="btn btn-success px-4 py-2">Comece Já</a>
+
       </div>
     </div>
   </header>
@@ -58,11 +58,11 @@
     <!-- CARD 1 -->
     <div class="col-md-6">
       <div class="card shadow-sm h-100">
-        <img src="card1.png" class="card-img-top">
+        <img src="{% static 'trilhas/img/segurança.png' %}" class="card-img-top">
         <div class="card-body">
-          <h6 class="text-success fw-bold">Entrada</h6>
-          <h5 class="fw-bold">Como Utilizar um site</h5>
-          <p>Aprenda a Navegar desde a entrada até a saída de um site.</p>
+          <h6 class="text-success fw-bold">Segurança</h6>
+          <h5 class="fw-bold">Navegue de forma segura</h5>
+          <p>Aprenda como confiar ou desconfiar na veracidade de uma notícia.</p>
           <p class="text-warning mb-0">⭐ 4.3 <span class="text-muted">(16.325)</span></p>
         </div>
       </div>
@@ -71,10 +71,10 @@
     <!-- CARD 2 -->
     <div class="col-md-6">
       <div class="card shadow-sm h-100">
-        <img src="card2.png" class="card-img-top">
+        <img src="{% static 'trilhas/img/segurança2.png' %}" class="card-img-top">
         <div class="card-body">
-          <h6 class="text-success fw-bold">Segurança</h6>
-          <h5 class="fw-bold">Navegue de forma segura</h5>
+          <h6 class="text-success fw-bold">Segurança e Senhas</h6>
+          <h5 class="fw-bold">Navegue de forma segura: Parte 2</h5>
           <p>Aprenda como confiar ou desconfiar na veracidade de uma notícia.</p>
           <p class="text-warning mb-0">⭐ 4.2 <span class="text-muted">(125)</span></p>
         </div>
@@ -88,30 +88,40 @@
 <section class="container my-5 text-center">
   <h5 class="text-success fw-bold">Criadores</h5>
   <h3 class="fw-bold">Conheça os Desenvolvedores</h3>
-  <p class="mb-5">Conheça os Alunos Participantes e o Professor responsável pelo projeto</p>
+  <p class="mb-5">Conheça os alunos participantes e o professor responsável pelo projeto</p>
 
   <div class="row justify-content-center g-4">
 
+    <!-- Yuri -->
     <div class="col-md-6">
       <div class="card p-4 shadow-sm">
         <img src="{% static 'trilhas/img/boji.png' %}" width="90" class="rounded-circle mx-auto mb-3">
         <h5>Yuri Bargas Oliveira</h5>
-        <p class="text-muted">Estudante de Análise e Desenvolvimento de Sistemas</p>
+        <p class="text-muted">Estudante de ADS</p>
         <div>
-          <i class="bi bi-linkedin"></i>
-          <i class="bi bi-github"></i>
+          <a href="https://www.linkedin.com/in/yuri-bargas-oliveira-ba513a386/" class="text-decoration-none text-dark mx-2" target="_blank">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="https://github.com/YorihBarg" class="text-decoration-none text-dark mx-2" target="_blank">
+            <i class="bi bi-github"></i>
+          </a>
         </div>
       </div>
     </div>
 
+    <!-- Andressa -->
     <div class="col-md-6">
       <div class="card p-4 shadow-sm">
         <img src="{% static 'trilhas/img/kirby.png' %}" width="90" class="rounded-circle mx-auto mb-3">
         <h5>Andressa Dos Santos Antunes</h5>
-        <p class="text-muted">Estudante de Análise e Desenvolvimento de Sistemas</p>
+        <p class="text-muted">Estudante de ADS</p>
         <div>
-          <i class="bi bi-linkedin"></i>
-          <i class="bi bi-github"></i>
+          <a href="https://www.linkedin.com/in/andressasantunes6/" class="text-decoration-none text-dark mx-2" target="_blank">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a href="#" class="text-decoration-none text-dark mx-2" target="_blank">
+            <i class="bi bi-github"></i>
+          </a>
         </div>
       </div>
     </div>
@@ -138,7 +148,7 @@
     <div class="mb-3">
       <p class="fw-bold mb-1 small">Informações adicionais</p>
       <p class="small mb-0">
-        <a href="{% url 'saibamais' %}" class="text-light text-decoration-none"><i class="bi bi-info-lg"></i> Sobre nós</a><br>
+        <a href="{% url 'sobre' %}" class="text-light text-decoration-none"><i class="bi bi-info-lg"></i> Sobre nós</a><br>
         <a href="https://docs.google.com/document/d/1I50B5nf87lcbvWvDVuLmyVz7jJvC6sagjFIiQvTqs8Q/edit?tab=t.0" class="text-light text-decoration-none" target="_blank">
           <i class="bi bi-file-earmark-text-fill"></i> Documentação
         </a>

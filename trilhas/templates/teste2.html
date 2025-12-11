@@ -28,64 +28,100 @@
 </head>
 
 <body>
-
-<!-- NAVBAR -->
-<nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color:#063F55;">
-<a class="navbar-brand fw-bold text-success" href="{% url 'inicio' %}" style="font-size: 1.4rem;">
-    ConectaFacil
-</a>
-
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarContent">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item"><a class="nav-link text-success fw-bold" href="{% url 'inicio' %}">Página Inicial</a></li>
-      <li class="nav-item"><a class="nav-link text-light" href="{% url 'edita_usuario' %}">Perfil</a></li>
-      <li class="nav-item"><a class="nav-link text-light" href="{% url 'saibamais' %}">Saiba Mais</a></li>
-    </ul>
+<header class="p-3 mb-3 border-bottom" style="background-color:#063F55;" role="banner">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" role="navigation" aria-label="Pagina inicial"> 
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <svg class="bi me-2"
+            width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg> </a>
+        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
+          ConectaFacil
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a class="nav-link text-success fw-bold" href="{% url 'inicio' %}">Página Inicial</a></li>
+          <li><a class="nav-link text-light" href="{% url 'edita_usuario' %}">Perfil</a></li>
+          <li><a class="nav-link text-light" href="{% url 'saibamais' %}">Saiba Mais</a></li>
+        </ul>
     <a class="btn btn-outline-danger" href="{% url 'logout' %}">Sair</a>
-  </div>
-</nav>
+
+      </div>
+    </div>
+  </header>
 
 <!-- CONTEÚDO -->
 <section class="container text-center py-5">
 
   <h1 class="fw-bold mb-4">Encontre o botão correto<br>no meio dos anúncios!</h1>
 
-  <p class="text-muted mb-4">Clique nos anúncios para ver um alerta. O botão real existe... mas está bem escondido.</p>
-
   <!-- GRADE DE ANÚNCIOS -->
   <div class="row g-4 justify-content-center">
 
-    {% for i in "123456" %}
-    <div class="col-6 col-md-4">
-      <div class="card shadow-sm">
-
-        <!-- imagem falsa -->
-        <img src="{% static 'trilhas/img/anuncios.png' %}"
-             class="card-img-top fake-ad"
-             onclick="showWarning()">
-
-        <!-- botão falso -->
-        <div class="card-body p-2">
-          <button class="btn btn-sm btn-warning w-100 fw-bold" onclick="showWarning()">
-            CLIQUE AQUI PARA CONTINUAR
-          </button>
-        </div>
-
+  <!-- FALSO 1 -->
+  <div class="col-6 col-md-4">
+    <div class="card shadow-sm">
+      <img src="{% static 'trilhas/img/ad1.png' %}" class="card-img-top fake-ad" onclick="showWarning()">
+      <div class="card-body text-center">
+        <button class="btn btn-warning fw-bold w-100" onclick="showWarning()">Proxima Lição</button>
       </div>
     </div>
-    {% endfor %}
-
   </div>
+
+  <!-- FALSO 2 - card pequeno -->
+  <div class="col-4 col-md-3">
+    <div class="card shadow-sm">
+      <img src="{% static 'trilhas/img/ad6.png' %}" class="card-img-top fake-ad" style="height:130px; object-fit:cover;" onclick="showWarning()">
+      <div class="card-body text-center">
+        <button class="btn btn-danger fw-bold w-100" onclick="showWarning()">CLIQUE AQUI</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FALSO 3 - card mais largo -->
+  <div class="col-8 col-md-5">
+    <div class="card shadow-sm">
+      <img src="{% static 'trilhas/img/ad3.jpg' %}" class="card-img-top fake-ad" onclick="showWarning()">
+      <div class="card-body text-center">
+        <button class="btn btn-primary fw-bold w-100" onclick="showWarning()">CONTINUAR</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FALSO 4 -->
+  <div class="col-6 col-md-4">
+    <div class="card shadow-sm">
+      <img src="{% static 'trilhas/img/ad4.jpg' %}" class="card-img-top fake-ad" onclick="showWarning()">
+      <div class="card-body text-center">
+        <button class="btn btn-info fw-bold w-100" onclick="showWarning()">Finalizar</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- FALSO 5 -->
+  <div class="col-md-4">
+    <div class="">
+      <img src="{% static 'trilhas/img/ad5.png' %}" class="card-img-top fake-ad" onclick="showWarning()">
+      <div class=" text-center">
+      </div>
+    </div>
+  </div>
+
+  <!-- FALSO 6 -->
+  <div class="col-4 col-md-3">
+    <div class="card shadow-sm">
+      <img src="{% static 'trilhas/img/ad2.jpg' %}" class="card-img-top fake-ad" onclick="showWarning()">
+      <div class="card-body text-center">
+        <button class="btn btn-secondary fw-bold w-100" onclick="showWarning()">Proximo</button>
+      </div>
+    </div>
+  </div>
+
+</div>
 
   <!-- botão real escondido -->
   <div class="mt-5">
-    <a href="{% url 'testefinal' %}"
-       class="btn btn-success hidden-real-btn px-4 py-2">
-       Prosseguir (botão real)
+    <a href="{% url 'testefinal' %}">
+       Prosseguir
     </a>
   </div>
 

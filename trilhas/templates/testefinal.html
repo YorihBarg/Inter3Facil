@@ -22,25 +22,26 @@
 
 <body>
 
-<!-- Navbar -->
-<nav class="navbar navbar-expand-lg navbar-dark px-3" style="background-color:#063F55;">
-<a class="navbar-brand fw-bold text-success" href="{% url 'inicio' %}" style="font-size: 1.4rem;">
-    ConectaFacil
-</a>
-
-  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent">
-    <span class="navbar-toggler-icon"></span>
-  </button>
-
-  <div class="collapse navbar-collapse" id="navbarContent">
-    <ul class="navbar-nav mx-auto">
-      <li class="nav-item"><a class="nav-link text-success fw-bold" href="{% url 'inicio' %}">Página Inicial</a></li>
-      <li class="nav-item"><a class="nav-link text-light" href="{% url 'edita_usuario' %}">Perfil</a></li>
-      <li class="nav-item"><a class="nav-link text-light" href="{% url 'saibamais' %}">Saiba Mais</a></li>
-    </ul>
+<header class="p-3 mb-3 border-bottom" style="background-color:#063F55;" role="banner">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" role="navigation" aria-label="Pagina inicial"> 
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <svg class="bi me-2"
+            width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg> </a>
+        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
+          ConectaFacil
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a class="nav-link text-success fw-bold" href="{% url 'inicio' %}">Página Inicial</a></li>
+          <li><a class="nav-link text-light" href="{% url 'edita_usuario' %}">Perfil</a></li>
+          <li><a class="nav-link text-light" href="{% url 'saibamais' %}">Saiba Mais</a></li>
+        </ul>
     <a class="btn btn-outline-danger" href="{% url 'logout' %}">Sair</a>
-  </div>
-</nav>
+
+      </div>
+    </div>
+  </header>
 
 <!-- Conteúdo -->
 <section class="container text-center py-5">
