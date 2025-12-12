@@ -3,7 +3,8 @@ from django.contrib.auth.models import User
 from django.http import HttpResponse
 from django.contrib.auth import authenticate , login , logout 
 from django.contrib.auth.decorators import login_required
-from django.shortcuts import get_object_or_404
+from trilhas.models import Avaliacao
+TOTAL_AULAS = 3
 
 # Create your views here.
 
@@ -60,37 +61,34 @@ def logout_usuario(request):
     logout (request)
     return render(request, 'index.html')
 
-@login_required
 def edita_usuario(request):
     usuario = request.user
-    
+
     if request.method == "POST":
         usuario.username = request.POST.get("username")
         usuario.email = request.POST.get("email")
 
-        # Se quiser permitir troca de senha:
         senha = request.POST.get("senha")
         confirmar_senha = request.POST.get("confirmar_senha")
 
         if senha:
             if senha != confirmar_senha:
-                return render(request, "editar_usuario.html", {
+                return render(request, "perfil.html", {
                     "erro": "As senhas não coincidem!",
                     "usuario": usuario
                 })
             usuario.set_password(senha)
 
         usuario.save()
-        return redirect("inicio")  # redirecionar para onde quiser
+        return redirect("edita_usuario")
 
-    return render(request, "perfil.html", {"usuario": usuario})
+    # 👉 CÁLCULO DE PROGRESSO
+    concluidas = Avaliacao.objects.filter(usuario=usuario).count()
+    progresso = int((concluidas / TOTAL_AULAS) * 100)
 
-    # if request.method == "POST":
-    #     livro.titulo = request.POST['titulo']
-    #     livro.autor = request.POST['autor']
-    #     livro.ano_publicacao = request.POST['ano_publicacao']
-    #     livro.editora = request.POST['editora']
-    #     livro.save()
-    #     return redirect('cadastro_livro')
-
-    # return render(request, 'livros.html', {'livros': livros, 'livro_editar': livro}) 
+    return render(request, "perfil.html", {
+        "usuario": usuario,
+        "concluidas": concluidas,
+        "total": TOTAL_AULAS,
+        "progresso": progresso
+    })

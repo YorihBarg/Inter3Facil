@@ -86,12 +86,18 @@
         <h2 class="text-success fw-bold mb-4">Progresso</h2>
 
         <p class="mb-2 fw-semibold">Segurança ao Navegar</p>
+<p class="text-muted mb-2">
+  Aulas concluídas: <strong>{{ concluidas }}</strong> / <strong>{{ total }}</strong>
+</p>
 
-        <div class="progress mb-3" style="height: 28px;">
-          <div class="progress-bar bg-success fw-bold" role="progressbar" style="width: 56%;">
-            56%
-          </div>
-        </div>
+<div class="progress mb-3" style="height: 28px;">
+  <div class="progress-bar bg-success fw-bold"
+       role="progressbar"
+       style="width: {{ progresso }}%;"
+       aria-valuenow="{{ progresso }}" aria-valuemin="0" aria-valuemax="100">
+    {{ progresso }}%
+  </div>
+</div>
 
         <p class="mb-4 text-muted">
           Continue sua jornada para aumentar ainda mais a sua segurança digital.

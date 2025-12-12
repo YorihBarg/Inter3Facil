@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from .models import Avaliacao
 
 # Create your views here.
 def inicio(request):
@@ -29,3 +30,19 @@ def avaliar_trilha(request):
         return redirect('testefinal')  # vá para onde quiser
 
     return redirect('testefinal')
+
+def concluir_aula(request, aula_id):
+    if request.method == "POST":
+        nota = request.POST.get("avaliacao")
+
+        registro, _ = Avaliacao.objects.get_or_create(
+            usuario=request.user,
+            aula=aula_id
+        )
+
+        if nota:
+            registro.avaliacao = int(nota)
+            registro.save()
+
+        return redirect("perfil")
+    return redirect("inicio")

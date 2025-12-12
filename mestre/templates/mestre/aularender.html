@@ -1,0 +1,90 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Aula - ConectaFacil</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header class="p-3 mb-3 border-bottom" style="background-color:#063F55;" role="banner">
+  <div class="container">
+    <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" role="navigation" aria-label="Pagina inicial"> 
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <svg class="bi me-2"
+            width="40" height="32" role="img" aria-label="Bootstrap">
+            <use xlink:href="#bootstrap"></use>
+          </svg> </a>
+        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
+          ConectaFacil
+        </a>
+        <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+          <li><a class="nav-link text-success fw-bold" href="{% url 'inicio' %}">Página Inicial</a></li>
+          <li><a class="nav-link text-light" href="{% url 'edita_usuario' %}">Perfil</a></li>
+          <li><a class="nav-link text-light" href="{% url 'saibamais' %}">Saiba Mais</a></li>
+        </ul>
+    <a class="btn btn-outline-danger" href="{% url 'logout' %}">Sair</a>
+
+      </div>
+    </div>
+  </header>
+
+<!-- CONTEÚDO DA AULA -->
+<section class="container py-5">
+
+  <!-- TÍTULO -->
+  <h1 class="fw-bold text-center mb-4">
+{{ aula.titulo }}
+  </h1>
+
+  <!-- IMAGEM -->
+  <div class="text-center mb-4">
+    {% if aula.imagem %}
+  <img src="{% static aula.imagem %}"
+       class="img-fluid rounded shadow"
+       style="max-width: 700px;"
+       alt="Imagem da aula">
+{% endif %}
+  </div>
+
+  <!-- TEXTO -->
+  <div class="p-4 border rounded shadow-sm bg-light mx-auto"
+       style="max-width: 800px;">
+
+    <p style="font-size: 1.05rem; line-height: 1.6;">
+{{ aula.conteudo }}
+
+    </p>
+
+  </div>
+
+  <div class="text-center mt-5">
+
+  {% if aula_anterior %}
+    <a href="{% url 'aularender' aula_anterior.id %}"
+       class="btn btn-secondary px-4 me-2">
+      Voltar
+    </a>
+  {% endif %}
+
+{% if proxima_aula %}
+  <a href="{% url 'aularender' proxima_aula.id %}" class="btn btn-success px-5 fw-bold">
+    Próxima Aula
+  </a>
+{% else %}
+  <a href="{% url 'avaliacao_final' aula.trilha %}" class="btn btn-success px-5 fw-bold">
+    Finalizar Trilha
+  </a>
+{% endif %}
+
+</div>
+
+</section>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

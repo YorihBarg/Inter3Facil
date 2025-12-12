@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'conectafacil',
     'trilhas',
     'usuario',
+    'mestre',
 ]
 
 MIDDLEWARE = [
