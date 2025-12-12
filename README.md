@@ -2,5 +2,6 @@
 
 URLS
 
-http://127.0.0.1:8000/mestre/admin/aula/nova/
-http://127.0.0.1:8000/mestre/aula/1/
+docker build -t interdock .
+docker run -p 8000:8000 interdock
+http://localhost:8000
