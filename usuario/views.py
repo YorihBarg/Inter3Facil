@@ -51,11 +51,13 @@ def login_usuario(request):
         usuario = authenticate(username=nome_usuario, password=senha)
         if usuario:
             login(request, usuario)
-            #livros = Livro.objects.all()
-            #return render(request, 'livros.html', {'livros': livros})
-            return redirect('inicio')
+            # Verifique se o usuário é admin
+            if usuario.is_superuser:
+                return redirect('cadastrar_aula')  # ou o nome da URL que você deseja
+            else:
+                return redirect('inicio')
         else:
-            return HttpResponse('Usuario ou senha invalidos')
+            return HttpResponse('Usuário ou senha inválidos')
 
 def logout_usuario(request):
     logout (request)
