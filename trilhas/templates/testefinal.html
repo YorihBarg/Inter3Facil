@@ -62,7 +62,7 @@
   </div>
 
   <!-- AVALIAÇÃO ESTRELAS -->
-<form method="POST">
+<form method="POST" action="{% url 'finalizar_trilha' %}">
   {% csrf_token %}
 
   <label>Avalie esta trilha:</label>
