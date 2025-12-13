@@ -6,7 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Conteúdo - Segurança na Internet</title>
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-
   <style>
     .fake-ad {
       cursor: pointer;
@@ -16,7 +15,6 @@
       transform: scale(1.03);
       filter: brightness(1.1);
     }
-    /* botão real escondido */
     .hidden-real-btn {
       opacity: 0.4;
       font-size: 0.85rem;
@@ -31,10 +29,11 @@
 <header class="p-3 mb-3 border-bottom" style="background-color:#063F55;" role="banner">
   <div class="container">
     <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start" role="navigation" aria-label="Pagina inicial"> 
-        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none"> <svg class="bi me-2"
-            width="40" height="32" role="img" aria-label="Bootstrap">
+        <a href="/" class="d-flex align-items-center mb-2 mb-lg-0 link-body-emphasis text-decoration-none">
+          <svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap">
             <use xlink:href="#bootstrap"></use>
-          </svg> </a>
+          </svg>
+        </a>
         <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
           ConectaFacil
         </a>
@@ -44,99 +43,41 @@
           <li><a class="nav-link text-light" href="{% url 'saibamais' %}">Saiba Mais</a></li>
         </ul>
     <a class="btn btn-outline-danger" href="{% url 'logout' %}">Sair</a>
-
-      </div>
     </div>
-  </header>
+  </div>
+</header>
 
 <!-- CONTEÚDO -->
 <section class="container text-center py-5">
-
   <h1 class="fw-bold mb-4">Encontre o botão correto<br>no meio dos anúncios!</h1>
 
-  <!-- GRADE DE ANÚNCIOS -->
   <div class="row g-4 justify-content-center">
-
-  <!-- FALSO 1 -->
-  <div class="col-6 col-md-4">
-    <div class="card shadow-sm">
-      <img src="{% static 'trilhas/img/ad1.png' %}" class="card-img-top fake-ad" onclick="showWarning()">
-      <div class="card-body text-center">
-        <button class="btn btn-warning fw-bold w-100" onclick="showWarning()">Proxima Lição</button>
+    <!-- FALSO 1 -->
+    <div class="col-6 col-md-4">
+      <div class="card shadow-sm">
+        <img src="{% static 'trilhas/img/ad1.png' %}" class="card-img-top fake-ad" onclick="showWarning()">
+        <div class="card-body text-center">
+          <button class="btn btn-warning fw-bold w-100" onclick="showWarning()">Proxima Lição</button>
+        </div>
       </div>
     </div>
+    <!-- Outros cards de anúncios... -->
   </div>
-
-  <!-- FALSO 2 - card pequeno -->
-  <div class="col-4 col-md-3">
-    <div class="card shadow-sm">
-      <img src="{% static 'trilhas/img/ad6.png' %}" class="card-img-top fake-ad" style="height:130px; object-fit:cover;" onclick="showWarning()">
-      <div class="card-body text-center">
-        <button class="btn btn-danger fw-bold w-100" onclick="showWarning()">CLIQUE AQUI</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FALSO 3 - card mais largo -->
-  <div class="col-8 col-md-5">
-    <div class="card shadow-sm">
-      <img src="{% static 'trilhas/img/ad3.jpg' %}" class="card-img-top fake-ad" onclick="showWarning()">
-      <div class="card-body text-center">
-        <button class="btn btn-primary fw-bold w-100" onclick="showWarning()">CONTINUAR</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FALSO 4 -->
-  <div class="col-6 col-md-4">
-    <div class="card shadow-sm">
-      <img src="{% static 'trilhas/img/ad4.jpg' %}" class="card-img-top fake-ad" onclick="showWarning()">
-      <div class="card-body text-center">
-        <button class="btn btn-info fw-bold w-100" onclick="showWarning()">Finalizar</button>
-      </div>
-    </div>
-  </div>
-
-  <!-- FALSO 5 -->
-  <div class="col-md-4">
-    <div class="">
-      <img src="{% static 'trilhas/img/ad5.png' %}" class="card-img-top fake-ad" onclick="showWarning()">
-      <div class=" text-center">
-      </div>
-    </div>
-  </div>
-
-  <!-- FALSO 6 -->
-  <div class="col-4 col-md-3">
-    <div class="card shadow-sm">
-      <img src="{% static 'trilhas/img/ad2.jpg' %}" class="card-img-top fake-ad" onclick="showWarning()">
-      <div class="card-body text-center">
-        <button class="btn btn-secondary fw-bold w-100" onclick="showWarning()">Proximo</button>
-      </div>
-    </div>
-  </div>
-
-</div>
 
   <!-- botão real escondido -->
   <div class="mt-5">
-    <a href="{% url 'testefinal' %}">
-       Prosseguir
-    </a>
+    <a href="{% url 'testefinal' %}" class="btn btn-success">Prosseguir</a>
   </div>
-
 </section>
 
 <!-- MODAL de alerta -->
 <div class="modal fade" id="adWarningModal" tabindex="-1">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-
       <div class="modal-header bg-warning">
         <h5 class="modal-title fw-bold">Atenção!</h5>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
-
       <div class="modal-body">
         <p class="mb-0">
           Este é apenas um anúncio simulado, mas na vida real clicar em banners assim pode levar
@@ -144,11 +85,9 @@
           Aqui está tudo seguro — basta fechar a janela para continuar tentando.
         </p>
       </div>
-
       <div class="modal-footer">
         <button class="btn btn-secondary" data-bs-dismiss="modal">Fechar</button>
       </div>
-
     </div>
   </div>
 </div>
@@ -156,7 +95,6 @@
 <!-- FOOTER -->
 <footer class="bg-dark text-light py-4">
   <div class="container d-flex justify-content-between flex-wrap">
-
     <div class="mb-3">
       {% load static %}
       <a href="https://www.fraiburgo.ifc.edu.br" target="_blank" rel="noopener noreferrer">
@@ -168,7 +106,6 @@
         </a>
       </p>
     </div>
-
     <div class="mb-3">
       <p class="fw-bold mb-1 small">Informações adicionais</p>
       <p class="small mb-0">
@@ -178,7 +115,6 @@
         </a>
       </p>
     </div>
-
     <div class="mb-3">
       <p class="fw-bold mb-1 small">Social</p>
       <p class="small mb-0">
@@ -188,12 +124,11 @@
         <a href="https://www.fraiburgo.ifc.edu.br" class="text-light text-decoration-none" target="_blank">IFC - Fraiburgo</a>
       </p>
     </div>
-
   </div>
-
   <p class="text-center small mt-3 mb-0">© 2025 ConectaFacil. Todos os Direitos Reservados.</p>
 </footer>
 
+<!-- JavaScript -->
 <script>
 function showWarning() {
   var modal = new bootstrap.Modal(document.getElementById('adWarningModal'));
@@ -201,5 +136,6 @@ function showWarning() {
 }
 </script>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
