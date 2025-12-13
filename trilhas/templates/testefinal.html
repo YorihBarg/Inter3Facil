@@ -29,7 +29,7 @@
             width="40" height="32" role="img" aria-label="Bootstrap">
             <use xlink:href="#bootstrap"></use>
           </svg> </a>
-        <a href="{% url 'index' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
+        <a href="{% url 'inicio' %}" class="nav-link fs-4 text-success mb-3 mb-md-0 me-md-auto text-decoration-none"aria-label="Logo">
           ConectaFacil
         </a>
         <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
@@ -51,7 +51,7 @@
 
   <div class="d-flex justify-content-center mb-4">
     <div class="card" style="max-width: 400px;">
-      <img src="{% static 'trilhas/img/trilha-navegacao.png' %}" class="card-img-top">
+      <img src="{% static 'trilhas/img/parabens.png' %}" class="card-img-top">
       <div class="card-body">
         <p class="card-text">
           Esta trilha foi destinada a utilizar a internet sem ter dificuldades.<br>
@@ -62,10 +62,10 @@
   </div>
 
   <!-- AVALIAÇÃO ESTRELAS -->
-<form method="POST" action="{% url 'concluir_aula' 'aula1' %}">
+<form method="POST">
   {% csrf_token %}
 
-  <label>Avalie esta aula:</label>
+  <label>Avalie esta trilha:</label>
   <select name="avaliacao" class="form-select" style="max-width:200px; margin:auto;">
     <option value="1">⭐</option>
     <option value="2">⭐⭐</option>
@@ -74,10 +74,10 @@
     <option value="5">⭐⭐⭐⭐⭐</option>
   </select>
 
-  <button class="btn btn-success mt-3">Finalizar Aula</button>
+  <button class="btn btn-success mt-3">Finalizar Trilha</button>
 </form>
 
-  <a href="#" class="btn btn-outline-success mt-4">NOVA TRILHA</a>
+  <a href="{% url 'aularender' 1 %}" class="btn btn-outline-success mt-4">NOVA TRILHA</a>
 </section>
 
 <!-- Footer -->
